@@ -36,11 +36,14 @@ const getMonthlyKindnessNotes = async (req, res) => {
   endOfMonth.setMonth(endOfMonth.getMonth() + 1);
   endOfMonth.setDate(0);
 
+  console.log(startOfMonth, endOfMonth, userId);
+
   try {
     const notes = await KindnessNote.find({
       receiverId: userId, 
       date: { $gte: startOfMonth, $lte: endOfMonth },
     });
+    console.log("notes", notes);
     res.status(200).json(notes);
   } catch (error) {
     console.error("Failed to fetch monthly kindness notes:", error);
