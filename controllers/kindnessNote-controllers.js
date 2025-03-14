@@ -29,7 +29,7 @@ const sendKindnessNote = async (req, res) => {
 };
 
 const getMonthlyKindnessNotes = async (req, res) => {
-  const { userId } = req.params;
+  const { userId } = req.body;
   const startOfMonth = new Date();
   startOfMonth.setDate(1);
   const endOfMonth = new Date();
